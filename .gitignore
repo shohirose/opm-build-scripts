@@ -1,0 +1,8 @@
+opm-common/
+opm-material/
+opm-models/
+opm-simulators/
+opm-upscaling/
+opm-grid/
+fmt-7.0.3/
+*.zip
