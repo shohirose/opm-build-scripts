@@ -1,5 +1,5 @@
 # opm-build-scripts
-Bash scripts to build and install OPM modules from source on Ubuntu. The current OPM version is 2021.10.
+Bash scripts to build and install [OPM](https://opm-project.org/) modules from source on Ubuntu. The current OPM version is 2021.10.
 
 # How to use
 
