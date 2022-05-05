@@ -3,6 +3,7 @@
 VERSION="2021.10"
 PREFIX="${HOME}/opm-${VERSION}"
 MODULE_NAMES=("common" "material" "grid" "models" "simulators" "upscaling")
+MPI_SUPPORT="OFF"
 
 ###################################################
 # Check if a given string is a correct module name.
@@ -50,6 +51,7 @@ function print_help() {
   echo "  -h, --help      Print help messages."
   echo "  --prefix        Specify the install prefix path."
   echo "                  The default path is $HOME/opm-$version."
+  echo "  --use-mpi       Build with MPI support."
 }
 
 #####################################################
@@ -62,8 +64,14 @@ function print_help() {
 function install_opm_module() {
   local readonly module="$1"
   cd opm-${module}
-  cmake -S . -B build -D CMAKE_INSTALL_PREFIX=${PREFIX}/opm-${module} -D \
-      CMAKE_PREFIX_PATH=${PREFIX} -G Ninja -Wno-dev && \
+  cmake -S . -B build \
+      -DCMAKE_INSTALL_PREFIX=${PREFIX}/opm-${module} \
+      -DCMAKE_PREFIX_PATH=${PREFIX} \
+      -DUSE_MPI=${MPI_SUPPORT} \
+      -DCMAKE_CXX_FLAGS="-Wno-cast-function-type" \
+      -DSIBLING_SEARCH=OFF \
+      -GNinja \
+      -Wno-dev && \
     cmake --build build && \
     cmake --install build
 }
@@ -79,6 +87,10 @@ while [[ $# -gt 0 ]]; do
     --prefix)
       PREFIX="$2"
       shift
+      shift
+      ;;
+    --use-mpi)
+      MPI_SUPPORT="ON"
       shift
       ;;
     -*|--*)
