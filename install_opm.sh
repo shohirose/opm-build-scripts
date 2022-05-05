@@ -65,7 +65,7 @@ function install_opm_module() {
   local readonly module="$1"
   cd opm-${module}
   cmake -S . -B build \
-      -DCMAKE_INSTALL_PREFIX=${PREFIX}/opm-${module} \
+      -DCMAKE_INSTALL_PREFIX=${PREFIX} \
       -DCMAKE_PREFIX_PATH=${PREFIX} \
       -DUSE_MPI=${MPI_SUPPORT} \
       -DCMAKE_CXX_FLAGS="-Wno-cast-function-type" \
