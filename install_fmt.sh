@@ -3,7 +3,7 @@
 OPM_VER="2021.10"
 FMT_VER="7.0.3"
 URL="https://github.com/fmtlib/fmt/releases/download/${FMT_VER}/fmt-${FMT_VER}.zip"
-PREFIX="{$HOME}/opm-${OPM_VER}"
+PREFIX="${HOME}/opm-${OPM_VER}"
 
 ###################################################
 # Print help messages.
@@ -53,6 +53,9 @@ if [[ ! -d fmt-${FMT_VER} ]]; then
 fi
 
 cd fmt-${FMT_VER}
-cmake -S . -B build -D CMAKE_INSTALL_PREFIX=${PREFIX}/fmt -G Ninja -Wno-dev && \
+cmake -S . -B build \
+    -D CMAKE_INSTALL_PREFIX=${PREFIX} \
+    -G Ninja \
+    -Wno-dev && \
   cmake --build build && \
   cmake --install build
