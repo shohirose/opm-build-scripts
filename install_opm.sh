@@ -110,5 +110,8 @@ if [[ ${#modules[@]} -eq 0 ]]; then
 fi
 
 for module in ${modules[@]}; do
+  echo ""
+  echo "====== Installing ${module} ====="
+  echo ""
   install_opm_module "${module}"
 done
