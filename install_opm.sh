@@ -47,7 +47,7 @@ function print_help() {
   echo "  upscaling       Install opm-upscaling."
   echo ""
   echo "Options:"
-  echo "  -h, --help      Print a help message."
+  echo "  -h, --help      Print help messages."
   echo "  --prefix        Specify the install prefix path."
   echo "                  The default path is $HOME/opm-$version."
 }
@@ -98,5 +98,5 @@ if [[ ${#modules[@]} -eq 0 ]]; then
 fi
 
 for module in ${modules[@]}; do
-    install_opm_module "${module}"
+  install_opm_module "${module}"
 done
