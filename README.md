@@ -7,7 +7,6 @@ You can install all of the OPM modules by
 
 ```terminal
 $ ./install_prerequisites.sh
-$ ./install_fmt.sh
 $ ./install_opm.sh
 ```
 
