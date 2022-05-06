@@ -74,6 +74,7 @@ function install_opm_module() {
       -Wno-dev && \
     cmake --build build && \
     cmake --install build
+  cd ..
 }
 
 # Parse arguments
